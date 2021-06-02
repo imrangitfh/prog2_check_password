@@ -10,16 +10,16 @@ public class AppTest {
     @Test
     @DisplayName("Test if password is too long")
     public void checkPasswordLong(){
-        String password = "aBcde#32f89";
+        String password = "aBsadaBsadaBsadaBsadaBsadaBsadaBsadaBsadaBsade#32f89";
 
-        assertEquals(true, App.checkPassword(password));
+        assertEquals(false, App.checkPassword(password));
     }
     @Test
     @DisplayName("Test if password is too short")
     public void checkPasswordShort(){
-        String password = "23ACc#df321";
+        String password = "23ACc";
 
-        assertEquals(true, App.checkPassword(password));
+        assertEquals(false, App.checkPassword(password));
     }
     @Test
     @DisplayName("Test if password contains lower case")
@@ -31,9 +31,9 @@ public class AppTest {
     @Test
     @DisplayName("Test if password contains digits")
     public void checkDigit() {
-        String password = "AAAAAA2AAA#er#";
+        String password = "AAAAAAAAA#er#";
 
-        assertEquals(true, App.checkPassword(password));
+        assertEquals(false, App.checkPassword(password));
     }
     @Test
     @DisplayName("Test if password contains upper case")
@@ -45,14 +45,14 @@ public class AppTest {
     @Test
     @DisplayName("Test if password contains consecutive numbers")
     public void checkConsecutiveNumbers() {
-        String password = "2333abdseHas#";
+        String password = "222abdseHas#";
 
         assertEquals(true, App.checkPassword(password));
     }
     @Test
     @DisplayName("Test if password contains increasing numbers")
     public void checkIncreasingNumbers() {
-        String password = "23abdseHas#";
+        String password = "235abdseHas#";
 
         assertEquals(true, App.checkPassword(password));
     }

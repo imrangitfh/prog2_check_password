@@ -3,8 +3,8 @@ package at.ac.fhcampuswien;
 public class App {
     private static final String VALID_PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[()#$?!%/@]).{8,25}$";
     public static boolean checkPassword(String password){
-        int increase_count = 0, consecutive_count = 0;
         boolean consecutive = true, increasing = true;
+        int increase_count = 0, consecutive_count = 0;
 
         if(!password.matches(VALID_PASSWORD_REGEX))
             return false;
