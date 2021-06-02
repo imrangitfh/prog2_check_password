@@ -1,15 +1,6 @@
 package at.ac.fhcampuswien;
 
 public class App {
-    String password;
-
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     private static final String VALID_PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[()#$?!%/@]).{8,25}$";
     public static boolean checkPassword(String password){
         int increase_count = 0, consecutive_count = 0;
@@ -27,8 +18,10 @@ public class App {
                                 break;
                             }
                         }
-                        else
+                        else {
                             increasing = false;
+                            increase_count = 0;
+                        }
                     }
                     if (Character.isDigit(password.charAt(i))){
                         for (int j = i + 1; j < password.length(); j++) {
@@ -38,8 +31,10 @@ public class App {
                                     break;
                                 }
                             }
-                            else
+                            else {
                                 consecutive = false;
+                                consecutive_count = 0;
+                            }
 
                         }
                     }
